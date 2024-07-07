@@ -9,6 +9,7 @@ import {
 import Slider from "@react-native-community/slider";
 import { useState } from "react";
 import { ModalPassword } from "@/components/modal/index.js";
+import { Link } from "expo-router";
 
 let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
@@ -47,7 +48,10 @@ export default function HomeScreen() {
       </TouchableOpacity>
 
       <Modal visible={modalVisible} animationType="fade" transparent={true}>
-        <ModalPassword />
+        <ModalPassword
+          password={passwordValue}
+          handleClose={() => setModalVisible(false)}
+        />
       </Modal>
     </View>
   );
